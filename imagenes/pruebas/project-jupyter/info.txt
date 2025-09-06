@@ -1,0 +1,50 @@
+#Documentacion de que el archivo docker-compose.yml
+
+-version: '3.11': Especifica la version del formato de archivo Docker COmpose. En este caso es una version
+3.11 dado que las dependencias iran con esta funcion actual, si hay alguna mas novedosa se pondra una
+version superior.
+
+-services: La seccion de servicios define los distintos contenedores(servicios) que componen tu apliacion.
+
+-jupyter: Este servicio representa un entorno de cuaderno Jupyter esencial para el analisis interactivo de datos.
+
+-image: jupyter/scipy-notebook:latest: Epecifica la imagen Docker que se utilizara para el cuaderno Jupyter, que incluye bibliotecas populares de ciendia de datos como NumPy, pandas y matplotlib.
+
+-volumes: - ./notebooks:/home/vrojas/work: Esto monta el directorio de cuadernos de tu maquina anfitriona
+en /home/vrojas/work dentro del contenedor, permitiendose persistir y compartir tus cuadrenos. 
+Nota: Este es mi camino personal y el tuyo debe ser diferente.
+
+-ports: - "8888:8888": ESto asigna el puerto 8888 de tu maquina anfitriona al puerto 8888
+del contenedor, que es el puerto por defecto para los cuadernos Jupyter.
+
+-enviroments: -JUPUTER_ENABLE_LAB=yes: Esto habilita JUpyterLab, una interfaz mas potente para trabajar
+con cuadernos Jupyter.
+
+-postgres: Este servicio ejecuta una base de datos PostgreSQL, que suele utilizarse para almacenar y 
+gestionar grandes conjuntos de datos en proyectos de ciencia de datos.
+
+-image: postgres:13-alpine : Aqui se especifica la imagen Docker para la version 13 de PostgreSQL,  
+basada en la distribucion ligera Alpine Linux.
+
+-enviroment: Estas variables de entorno configuran la base de datos con un usuario, una contrasenya
+y un nombre de base de datos.
+
+-volumes: -postgres_data: /var/lib/postgresql/data: Esto monta un volumen Docker para persistir los datos de la base de datos fuera del contendor, de modo que tus datos no se pierdan
+cuando se detenga el contenedor.
+
+-ports: -"5432:5432": Esto asigna el puerto 5432 de tu maquina anfitriona al puerto 5432 del contenedor,
+el puerto por defecto para PostreSQL.
+
+-redis: Este servicio ejecuta un servidor Redis, que puede utilizarse como almacen o cache
+rapido de datos en memoria.
+
+-image: redis:alpine: Especifica la imagen Redis utilizando la variante ligera Alpine.
+
+-ports: -"6379:6379": Esto asigna el puerto 6379 de tu maquina anfitriona al puerto 6379 del contenedor, el puerto 
+por defecto para Redis.
+
+-volumes: Esta seccion define volumenes con nombre que pueden ser compartidos entre servicios o persistir datos a traves
+de los contenedores.
+
+-postgres_data: Esto crea un volumen con nombre para la persistencia de datos PostgreSQL.
+

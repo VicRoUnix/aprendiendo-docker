@@ -1,0 +1,29 @@
+version: '3.11'
+services:
+  jupyter:
+    image: jupyter/scipy-notebook:latest
+    volumes:
+      - ./notebooks:/home/vrojas/work
+    ports:
+      - "8888:8888"
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+
+  postgres:
+    image: postgres:13-alpine
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydatabase
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+
+volumes:
+  postgres_data:
