@@ -1,0 +1,17 @@
+#Documentacion de que hace el archivo Dockerfile
+
+-FROM python:3.8-slim: Esto establece la imagen base en Python 3.8 en su variante slim, una version
+minima de Python, ideal para un entorno ligero de ciencia de datos
+
+-WORKDIR /app: Esto establece el directorio de trabajo dentro del contenedor en /app. Todos los comandos
+posteriores se ejecutaran dentro de este directorio.
+
+-COPY . /app: Esto copia todos los archivos de tu directorio actual en la maquina anfitriona y los coloca
+en el directorio /app del contenedor. Esto suele incluir tus scripts de ciencia de datos y archivos de 
+configuracion.
+
+-EXPOSE 8888: Esto hace que el puerto 8888 este disponible para la maquina anfitriona, el puerto por defecto
+para los cuadernos Jupyter.
+
+
+
