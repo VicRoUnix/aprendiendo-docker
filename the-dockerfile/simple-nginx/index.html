@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica DevOps</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+
+        body {
+            background-color: #1a1a2e; /* Fondo azul oscuro */
+            color: #e0e0e0; /* Texto gris claro */
+            font-family: 'Space Mono', monospace; /* Fuente estilo "tech" */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        .container {
+            padding: 2em;
+            border-radius: 15px;
+            background-color: #16213e;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #0f3460;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #53d8fb; /* Color cian para el texto principal */
+            text-shadow: 0 0 10px #53d8fb;
+        }
+
+        span {
+            font-size: 3em;
+            display: block; /* Hace que el emoji aparezca debajo */
+            margin-top: 20px;
+            animation: rocket-fly 3s ease-in-out infinite;
+        }
+        
+        /* Animación para el cohete */
+        @keyframes rocket-fly {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hola DevOps, ¡espero que tengas un buen día!</h1>
+        <span>🚀</span>
+    </div>
+</body>
+</html>
