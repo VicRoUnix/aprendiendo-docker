@@ -427,7 +427,7 @@ docker compose up
 ```
 
 ### 3.Volumenes corruptos
-````
+```
 bash
 # Limpiar volúmenes
 docker compose down --volumes
